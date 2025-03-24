@@ -160,5 +160,11 @@ FROM usuarios u
 LEFT JOIN comentarios c ON u.id = c.usuario_id
 WHERE c.id IS NULL;
 
+-- a última hora leí que habia que usar HAVING
 
+SELECT u.email
+FROM usuarios u
+LEFT JOIN comentarios c ON u.id = c.usuario_id
+GROUP BY u.id
+HAVING COUNT(c.id) = 0;
 
